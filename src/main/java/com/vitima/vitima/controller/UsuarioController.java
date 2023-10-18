@@ -1,34 +1,37 @@
 package com.vitima.vitima.controller;
 
-import java.io.IOException;
+import com.vitima.vitima.models.Usuario;
+import com.vitima.vitima.models.dto.UsuarioCreateDTO;
+import com.vitima.vitima.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.vitima.vitima.models.Usuario;
-import com.vitima.vitima.service.UsuarioService;
-
 @RestController
-@RequestMapping("api/usuario")
+@RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
-    private  UsuarioService usuarioService;
+    private UsuarioService usuarioService;
 
-    
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> getUsuario(@PathVariable Long id) {
+        Usuario usuario = usuarioService.findById(id);
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
+    }
+
     @GetMapping
-    public List<Usuario> getAllUsuarios() throws IOException {
-        return usuarioService.getAll();
+    public ResponseEntity<List<Usuario>> getAllUsuarios() {
+        List<Usuario> usuarios = usuarioService.findAllUsuarios();
+        return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
     @PostMapping
-    public void createUsuario(@RequestBody Usuario usuario) throws IOException {
-        usuarioService.insert(usuario);
+    public ResponseEntity<Usuario> createUsuario(@RequestBody UsuarioCreateDTO usuarioCreateDTO) {
+        Usuario usuario = usuarioService.create(usuarioCreateDTO);
+        return new ResponseEntity<>(usuario, HttpStatus.CREATED);
     }
 
-    
 }

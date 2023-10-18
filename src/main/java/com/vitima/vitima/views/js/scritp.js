@@ -1,7 +1,7 @@
 // Função para buscar todos os usuários na API e exibi-los na página
 const getAllUsuarios = async () => {
     try {
-        const response = await fetch('http://localhost:8080/api/usuario');
+        const response = await fetch('http://localhost:8080/usuario');
         if (response.ok) {
             const usuarios = await response.json();
             const usuariosContainer = document.getElementById('list-usuarios');
@@ -19,7 +19,7 @@ const getAllUsuarios = async () => {
 // Função para inserir um novo usuário na APIk 
 const insertUsuario = async (usuario) => {
     try {
-        const response = await fetch('http://localhost:8080/api/usuario', {
+        const response = await fetch('http://localhost:8080/usuario', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,9 +70,9 @@ window.onload = async () => {
     await getAllUsuarios();
 }
 
-// // Função para buscar todos os usuários na API e exibi-los na página
+// Função para buscar todos os usuários na API e exibi-los na página
 // const getAllUsuarios = async () => {
-//     const response = await axios.get('http://localhost:8080/api/usuario');
+//     const response = await axios.get('http://localhost:8080/usuario');
 //     const usuariosContainer = document.getElementById('list-usuarios');
 //     const { usuarios } = response.data;
 //     usuarios.forEach(usuario => {
@@ -82,7 +82,7 @@ window.onload = async () => {
 
 // // Função para inserir um novo usuário na API
 // const insertUsuario = async (usuario) => {
-//     await axios.post('http://localhost:8080/api/usuario', usuario)
+//     await axios.post('http://localhost:8080/usuario', usuario)
 // }
 
 // const clearInputs = () => {
@@ -121,5 +121,3 @@ window.onload = async () => {
 //     //Chama a função para buscar e exibir os usuários na página
 //     await getAllUsuarios()
 // }
-
-
