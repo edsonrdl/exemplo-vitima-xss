@@ -21,12 +21,12 @@ public class UsuarioController {
 
     
     @GetMapping
-    public List<Usuario> getAllComments() throws IOException {
+    public List<Usuario> getAllUsuarios() throws IOException {
         return usuarioService.getAll();
     }
 
     @PostMapping
-    public void createComment(@RequestBody Usuario usuario) throws IOException {
+    public void createUsuario(@RequestBody Usuario usuario) throws IOException {
         usuarioService.insert(usuario);
     }
 

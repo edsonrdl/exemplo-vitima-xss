@@ -8,5 +8,6 @@ public class VitimaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VitimaApplication.class, args);
+		System.out.print("iniciou a api vítima");
 	}
 }
