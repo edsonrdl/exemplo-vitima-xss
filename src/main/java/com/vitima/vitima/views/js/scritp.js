@@ -1,7 +1,7 @@
 // Função para buscar todos os usuários na API e exibi-los na página
 const getAllUsuarios = async () => {
     try {
-        const response = await fetch('http://localhost:8080/usuario');
+        const response = await fetch('http://localhost:8080/user/users');
         if (response.ok) {
             const usuarios = await response.json();
             const usuariosContainer = document.getElementById('list-usuarios');
@@ -15,11 +15,36 @@ const getAllUsuarios = async () => {
         console.error('Erro na solicitação Fetch:', error);
     }
 }
+// document.getElementById("usuario-btn").addEventListener("click", function() {
+//     // Obter os valores dos campos de entrada
+//     var name = document.getElementById("name").value;
+//     var password = document.getElementById("password").value;
+
+//     // Criar um objeto de dados para enviar ao servidor
+
+
+//     // Enviar a solicitação POST para o servidor
+//     fetch('', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('Resposta do servidor:', data);
+//         // Aqui você pode lidar com a resposta do servidor, se desejar
+//     })
+//     .catch(error => {
+//         console.error('Erro ao enviar a solicitação:', error);
+//     });
+// });
 
 // Função para inserir um novo usuário na APIk 
 const insertUsuario = async (usuario) => {
     try {
-        const response = await fetch('http://localhost:8080/usuario', {
+        const response = await fetch('http://localhost:8080/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,10 +62,22 @@ const insertUsuario = async (usuario) => {
     }
 }
 
+
+
+// const clearInputs = () => {
+//     document.getElementById('name').value = '';
+//     document.getElementById('password').value = '';
+// }
 const clearInputs = () => {
-    document.getElementById('name').value = '';
-    document.getElementById('password').value = '';
+  var name=  document.getElementById('name').value = '';
+   var password= document.getElementById('password').value = '';
+    var data = {
+         name: name,
+         pasword: password // Corrigi o erro de digitação no nome do campo
+     };
+     return data;
 }
+
 
 // Event listener para o botão de usuário
 document.getElementById('usuario-btn').addEventListener('click', async () => {

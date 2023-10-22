@@ -14,12 +14,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = Usuario.TABLE_NAME)
+@Table(name = User.TABLE_NAME)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Usuario {
-    public static final String TABLE_NAME = "usuario";
+public class User {
+    public static final String TABLE_NAME = "user";
 
      @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
