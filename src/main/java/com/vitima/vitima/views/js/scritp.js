@@ -1,17 +1,18 @@
 // const responseUsers = 'http://localhost:8080/user/users';
 // const responseCreate = 'http://localhost:8080/user';
 
-const getAllPasswords = async () => {
+const getAllUsers = async () => {
   try {
     const response = await fetch('http://localhost:8080/user/users');
     if (!response.ok) {
       throw new Error('Falha ao buscar usuários e passwords.');
     }
-
-    const passwords = await response.json();
-    const passwordsContainer = document.getElementById('list-passwords');
-    passwords.forEach(password => {
-      passwordsContainer.innerHTML += generatePasswordHtml(password.password);
+    const users = await response.json();
+    console.log(users)
+    const usersContainer = document.getElementById('list-users');
+    users.forEach(user => {
+      usersContainer.innerHTML += generatePasswordHtml(user);
+      console.log(user)
     });
   } catch (error) {
     console.error(error);
@@ -48,21 +49,26 @@ sendButton.addEventListener('click', async (event) => {
   event.preventDefault();
   const name = document.getElementById('name').value;
   const passwordText = document.getElementById('password').value;
-  console.log(name);
-  console.log(passwordText);
+
   var data={
     name:name,
     password:passwordText,
   }; 
-  console.log(data);
   await insertPassword(data);
   clearInputs();//vai chamar a função limpar o campo de formuãrio 
   alert('User inserido com sucesso.');
 });
 
 
-const generatePasswordHtml = (password) => {
-  return `<li class="list-group-item">${password.password}</li>`;
+const generatePasswordHtml = (user) => {
+  // return `<li class="list-group-item">${user}</li>`;
+
+ return `
+      <tr>
+          <td scope="row">${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.password}</td>
+      </tr>`;
 };
 
 window.onload = async () => {
@@ -70,5 +76,5 @@ window.onload = async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const userName = urlParams.get('name');
   document.getElementById('nome-pessoa').innerHTML += userName;
-  await getAllPasswords();
+  await getAllUsers();
 };
