@@ -1,5 +1,9 @@
 // const responseUsers = 'http://localhost:8080/user/users';
 // const responseCreate = 'http://localhost:8080/user';
+const token = 'teste_token_de_autorizacao';
+localStorage.setItem('token', token);
+console.log(localStorage);
+
 
 const getAllUsers = async () => {
   try {

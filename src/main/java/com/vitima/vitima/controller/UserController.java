@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUsuario(@PathVariable Long id) {
+    public ResponseEntity<User> getUser(@PathVariable Long id) {
         User usuario = userService.findById(id);
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
@@ -37,6 +37,13 @@ public class UserController {
         System.out.println("Criando user");
         User createUser = userService.createUser(user);
         return new ResponseEntity<>(createUser, HttpStatus.CREATED);
+    }
+   
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        userService.delete(id);
+        return  ResponseEntity.noContent().build();
     }
 
 }

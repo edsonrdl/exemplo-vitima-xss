@@ -33,13 +33,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    @Transactional
-    public List<User> findAllUsersPasswords(){
-        return userRepository.findAll();
-    }
-    
     public List<String> findAllPasswords() {
         return userRepository.findAllPasswords();
     }
 
+
+public void delete (long id){
+    findById(id);
+    try{
+        this.userRepository.deleteById(id);
+    }catch(Exception e){
+        throw new RuntimeException("Não é possível deletar porquê há relacionamento com outra entidade");
+    }
+}
 }
