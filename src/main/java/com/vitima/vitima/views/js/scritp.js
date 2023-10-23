@@ -12,11 +12,10 @@ const getAllUsers = async () => {
       throw new Error('Falha ao buscar usuários e passwords.');
     }
     const users = await response.json();
-    console.log(users)
     const usersContainer = document.getElementById('list-users');
     users.forEach(user => {
       usersContainer.innerHTML += generatePasswordHtml(user);
-      console.log(user)
+      console.log("users"+ " "+user)
     });
   } catch (error) {
     console.error(error);
