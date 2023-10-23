@@ -13,8 +13,8 @@ import java.util.Optional;
 @Service
 public class UserService {
     @Autowired
-    private UserRepository userRepository;
 
+    private UserRepository userRepository;
     public User findById(Long id) {
         Optional<User> usuario = this.userRepository.findById(id);
         return usuario.orElseThrow(() -> new RuntimeException(
@@ -23,7 +23,7 @@ public class UserService {
 
     @Transactional
     public User createUser(User obj) {
-        obj.setId(null);
+        obj.setId((null));
         obj=this.userRepository.save(obj);
         return obj;
     }
@@ -31,6 +31,15 @@ public class UserService {
     @Transactional
     public List<User> findAllUsers(){
         return userRepository.findAll();
+    }
+
+    @Transactional
+    public List<User> findAllUsersPasswords(){
+        return userRepository.findAll();
+    }
+    
+    public List<String> findAllPasswords() {
+        return userRepository.findAllPasswords();
     }
 
 }
