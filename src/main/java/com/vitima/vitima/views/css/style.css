@@ -14,10 +14,16 @@ text-align: center;
   border:solid 5px rgb(143, 143, 143);
   max-height: 95vh;
   background: rgb(231, 231, 231);
+  width: 83.3333333333%;
 }
 .title-admin h1{
 text-align: center;
   font-size: 1rem;
+}
+.row-div{
+  height: 1px;
+  width: 100vw;
+  background: black;
 }
 .container-column{
   width: 100vw;
