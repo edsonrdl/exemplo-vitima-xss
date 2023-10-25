@@ -17,19 +17,9 @@
       <a class="navbar-brand" href="#" >Trabalho de segurança cibernética <b>Exemplo de ataque xss</b></a>
       <div id="nome-pessoa"></div>
     </nav>
-    <div class="row mt-5">
-      <div style="max-height: 95vh;" class="col-4 offset-1">
-        <div class="container-users">
-          <div class="column">Id</div>
-          <div class="column">Name</div>
-          <div class="column">Password</div>
-        </div>
-       <table class="table table-hover" >
-        <tbody id="list-users"></tbody>
-       </table >
-      </div>
-      <div class="col-4 offset-1">
-        <div class="">
+    <div class="column mt-5">
+      <div class="col-4">
+        <div class="form-login-user">
           <form class="form">
             <p class="title">Login de Usuários</p>
             <p class="message">Por favor, digite seu nome de usuário e password!</p>
@@ -42,6 +32,13 @@
             <button id="send-btn" class="submit"  type="button">Enviar</button>
           </form>
         </div> 
+      </div>
+      <div style="background: black; heigth:1px"></div>
+      <div  class="col-10 " style="max-height: 95vh;">
+        <div class="title-admin"><h1>Simulação de um Administrador Executando uma função para buscar todos os  users</h1></div>
+       <table class="table table-hover" >
+        <tbody id="list-users"></tbody>
+       </table >
       </div>
   </div>
   </div>

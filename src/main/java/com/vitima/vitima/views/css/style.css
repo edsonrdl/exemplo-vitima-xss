@@ -1,21 +1,41 @@
+.navbar-brand{
+text-align: center;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.col-10{
+  border-radius: 20px;
+  border:solid 5px rgb(143, 143, 143);
+  max-height: 95vh;
+  background: rgb(231, 231, 231);
+}
+.title-admin h1{
+text-align: center;
+  font-size: 1rem;
+}
 .container-column{
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.container-users{
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 1.5rem;
+
+.form-login-user{
+  border-radius: 20px;
+  border:solid 5px rgb(52, 86, 185);
+
+
 }
 .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
+    gap: 20px;
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
